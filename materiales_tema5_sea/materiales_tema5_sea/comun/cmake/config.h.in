@@ -1,0 +1,2 @@
+#cmakedefine01 HAVE_XDO
+#cmakedefine01 HAVE_GTK3

@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.16)
+project(actividad_gtk C)
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GTK3 REQUIRED IMPORTED_TARGET gtk+-3.0)
+set(COMUN "${CMAKE_CURRENT_SOURCE_DIR}/../../comun")
+# Se reutilizan las bibliotecas reales del odómetro, sin copiar sus fuentes.
+set(BUILD_TESTING OFF CACHE BOOL "Pruebas del proyecto común" FORCE)
+add_subdirectory(${COMUN} ${CMAKE_BINARY_DIR}/componentes)
+add_executable(actividad_gtk odometro_gtk.c)
+target_compile_options(actividad_gtk PRIVATE -Wall -Wextra -Wpedantic)
+target_link_libraries(actividad_gtk PRIVATE odometro_core fuente_posicion PkgConfig::GTK3)
