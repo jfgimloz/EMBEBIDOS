@@ -1,0 +1,9 @@
+[Icon Theme]
+Name=FOSSight
+Comment=Icono de la demostracion FOSSight
+Directories=512x512/apps
+
+[512x512/apps]
+Size=512
+Context=Applications
+Type=Threshold

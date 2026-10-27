@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fossight"
+version = "0.1.0"
+description = "Ejercicios visuales y verificables de FOSSight"
+requires-python = ">=3.12,<3.13"
+dependencies = ["Pillow>=10,<12"]
+
+[project.optional-dependencies]
+profundidad = [
+    "torch>=2.5,<3",
+    "transformers>=4.45,<6",
+    "huggingface_hub>=0.25,<1",
+]
+dev = ["pytest>=8,<9"]
+
+[tool.setuptools]
+py-modules = [
+    "audio",
+    "avisos",
+    "clasificacion",
+    "gui",
+    "modelo_opcional",
+    "profundidad",
+    "transformaciones",
+    "variantes",
+]
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib"]
+pythonpath = ["src"]
+testpaths = ["tests"]
+python_files = ["*_test.py"]
+python_functions = ["*_test"]
